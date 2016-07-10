@@ -13,9 +13,13 @@ public class CustomerTest {
 		CustomerDaoTest customerDao = (CustomerDaoTest)context.getBean("customerDaoTest");
 		System.out.println("customerDao: "+customerDao.getCustomerList());
 		
-		for(Customer c:customerDao.getCustomerList()){
+		/*for(Customer c:customerDao.getCustomerList()){
 			System.out.println("Name: "+c.getFirstName());
-		}
+		}*/
+		
+		
+		Customer c = customerDao.getCustomerById(1);
+		System.out.println("Name: "+c.getFirstName());
 
 		
 	}

@@ -34,6 +34,20 @@ public class CustomerDaoTest {
             }
         }
     }
+    
+	public Customer getCustomerById(Integer id) {
+        EntityManager em = this.emf.createEntityManager();
+        try {
+            Query query = em.createQuery("select a from Customer a where customerId = :customerId");
+            query.setParameter("customerId", id);
+            return (Customer)query.getSingleResult();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+	}
 
 
 }
