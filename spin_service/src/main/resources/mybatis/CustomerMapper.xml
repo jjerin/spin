@@ -8,10 +8,34 @@
  		select * from customer
  	</select>
  	
+ 	 	<select id="getCustomerById" resultType="com.jerin.spin.spinservice.model.Customer">
+ 		select * from customer where customer_id = #{id}
+ 	</select>
  	
- 	 <select id="addCustomer" parameterType="com.jerin.spin.spinservice.model.Customer">
+ 	 <insert id="addCustomer" parameterType="com.jerin.spin.spinservice.model.Customer">
  		insert into customer values (#{customerId}, #{customerName}, #{phoneNo}, #{address}, #{city}, #{state}, #{zip}, NOW(), 'SYSTEM', null, null);
 
- 	</select>
+ 	</insert>
+ 	
+ 	
+ 	<insert id="updateCustomer" parameterType="com.jerin.spin.spinservice.model.Customer">
+ 		update customer 
+		set
+			customer_id= #{customerId}, 
+			customer_name = #{customerName}, 
+			phone_no = #{phoneNo}, 
+			address = #{address}, 
+			city = #{city}, 
+			state = #{state}, 
+			zip = #{zip}, 
+			updated_date = NOW(), 
+			updated_by = 'SYSTEM'
+		where customer_id = #{customerId}
+
+ 	</insert>
+ 	
+ 	 <delete id="deleteCustomer" >
+ 		delete from customer where customer_id = #{id}
+ 	</delete>
  
  </mapper>

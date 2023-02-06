@@ -13,4 +13,10 @@ public interface CustomerMapper {
 	
 	void addCustomer(Customer customer);
 
+	Customer getCustomerById(Integer id);
+
+	void updateCustomer(Customer customer);
+
+	void deleteCustomer(Integer id);
+
 }

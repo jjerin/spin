@@ -18,7 +18,20 @@ public class CustomerService {
 		return customerMapper.getAllCustomer();
 	}
 	
+	public Customer getCustomerById(Integer id) {
+		return customerMapper.getCustomerById(id);
+	}
+	
 	public void addCustomer(Customer customer) {
 		customerMapper.addCustomer(customer);
+	}
+
+	public void updateCustomer(Customer customer) {
+		customerMapper.updateCustomer(customer);
+		
+	}
+
+	public void deleteCustomer(Integer id) {
+		customerMapper.deleteCustomer(id);
 	}
 }
