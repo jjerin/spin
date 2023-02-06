@@ -1,0 +1,17 @@
+<?xm1 version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.jerin.spin.spinservice.mapper.CustomerMapper">
+ 
+ 	<select id="getAllCustomer" resultType="com.jerin.spin.spinservice.model.Customer">
+ 		select * from customer
+ 	</select>
+ 	
+ 	
+ 	 <select id="addCustomer" parameterType="com.jerin.spin.spinservice.model.Customer">
+ 		insert into customer values (#{customerId}, #{customerName}, #{phoneNo}, #{address}, #{city}, #{state}, #{zip}, NOW(), 'SYSTEM', null, null);
+
+ 	</select>
+ 
+ </mapper>
